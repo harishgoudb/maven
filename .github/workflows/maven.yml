@@ -27,8 +27,6 @@ jobs:
         uses: jfrog/setup-jfrog-cli@v4.0.0
         with:
           version: 2.34.6
-        env:
-          JF_ARTIFACTORY_1: ${{ secrets.HARISH_CLI_GITHUB_ACTIONS }}
       - name: Setup JFrog CLI
         run: |
           jf config add hts2 --url=https://hts2.jfrog.io --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS --interactive=false
@@ -39,5 +37,49 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-        env:
-          JF_ARTIFACTORY_1: ${{ secrets.HARISH_CLI_GITHUB_ACTIONS }}     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
