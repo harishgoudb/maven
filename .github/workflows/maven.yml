@@ -18,11 +18,12 @@ jobs:
         with:
               java-version: '11'
               distribution: 'adopt'
-      - name: env_variable
+      - name: Hello world
         run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
         env:
-           user_name_name: test
-           Password: testing
+          FIRST_NAME: "Mona"
+          middle_name: "The"
+          password: "Octocat"
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4.0.0
         with:
