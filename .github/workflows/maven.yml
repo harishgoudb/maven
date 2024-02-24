@@ -31,7 +31,7 @@ jobs:
           JF_ARTIFACTORY_1: ${{ secrets.HARISH_CLI_GITHUB_ACTIONS }}
       - name: Setup JFrog CLI
         run: |
-          jf config add hts2 --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS --interactive=false
+          jf config add hts2 --url=https://hts2.jfrog.io --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS --interactive=false
           jf c show
           jf mvn-config --global --server-id-resolve=hts2 --repo-resolve-releases=ghactions-libs-release --repo-resolve-snapshots=ghactions-libs-snapshot --server-id-deploy=hts2 --repo-deploy-releases=ghactions-libs-release-local --repo-deploy-snapshots=ghactions-libs-snapshot-local
           jf mvn clean install
