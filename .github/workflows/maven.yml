@@ -29,7 +29,7 @@ jobs:
           version: 2.34.6
       - name: Setup JFrog CLI
         run: |
-          jf config add hts2 --url=https://hts2.jfrog.io --username=${{ secrets.ARTIFACTORY_USER }} --password=${{ secrets.ARTIFACTORY_PASS }} --password-stdin --interactive=false
+          jf config add hts2 --url=https://hts2.jfrog.io --user=${{ secrets.ARTIFACTORY_USER }} --password=${{ secrets.ARTIFACTORY_PASS }} --password-stdin --interactive=false
           jf c show
           jf rt ping
           jf mvn-config --global --server-id-resolve=hts2 --repo-resolve-releases=ghactions1-libs-release --repo-resolve-snapshots=ghactions1-libs-snapshot --server-id-deploy=hts2 --repo-deploy-releases=ghactions1-libs-release-local --repo-deploy-snapshots=ghactions1-libs-snapshot-local
