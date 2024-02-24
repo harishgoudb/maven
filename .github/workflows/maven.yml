@@ -33,8 +33,9 @@ jobs:
         run: |
           jf config add hts2 --url=https://hts2.jfrog.io --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS --interactive=false
           jf c show
+          jf rt ping
           jf mvn-config --global --server-id-resolve=hts2 --repo-resolve-releases=ghactions-libs-release --repo-resolve-snapshots=ghactions-libs-snapshot --server-id-deploy=hts2 --repo-deploy-releases=ghactions-libs-release-local --repo-deploy-snapshots=ghactions-libs-snapshot-local
-          jf mvn clean install -f maven-example/pom.xml
+          jf mvn clean install -f maven-example/pom.xml -U
           jf rt bce
           jf rt bag
           jf rt bp
