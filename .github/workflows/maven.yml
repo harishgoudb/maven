@@ -33,10 +33,7 @@ jobs:
         run: |
           jf config add hts2 --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS --interactive=false
           jf c show
-          jfrog rt use hts2
           jf mvn-config --global --server-id-resolve=hts2 --repo-resolve-releases=ghactions-libs-release --repo-resolve-snapshots=ghactions-libs-snapshot --server-id-deploy=hts2 --repo-deploy-releases=ghactions-libs-release-local --repo-deploy-snapshots=ghactions-libs-snapshot-local
-      - name: Publish and promote in SAAS instance
-        run: |
           jf mvn clean install
           jf rt bce
           jf rt bag
