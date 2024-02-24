@@ -22,7 +22,7 @@ jobs:
         run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
         env:
            user_name_name: test
-           Password : testing
+           Password: testing
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4.0.0
         with:
@@ -30,7 +30,7 @@ jobs:
         env:
           JF_ARTIFACTORY_1: ${{ secrets.HARISH_CLI_GITHUB_ACTIONS }}
       - run: |
-          jf mvn-config --global --server-id-resolve=hts2 --repo-resolve-releases=ghactions-libs-release --repo-resolve-snapshots=ghactions-libs-snapshot --repo-deploy-releases=ghactions-libs-release-local --repo-deploy-snapshots=ghactions-libs-snapshot-local
+          jf mvn-config --global --server-id-resolve=hts2 --repo-resolve-releases=ghactions-libs-release --repo-resolve-snapshots=ghactions-libs-snapshot --server-id-deploy=hts2 --repo-deploy-releases=ghactions-libs-release-local --repo-deploy-snapshots=ghactions-libs-snapshot-local
       - name: Publish and promote in saas instance
         run: |
           jf mvn clean install
