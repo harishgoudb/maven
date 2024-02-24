@@ -29,7 +29,8 @@ jobs:
           version: 2.34.6
         env:
           JF_ARTIFACTORY_1: ${{ secrets.HARISH_CLI_GITHUB_ACTIONS }}
-      - run: |
+      - name: Setup JFrog CLI
+        run: |
           jf config add hts2 --url=$ARTIFACTORY_URL --user=$ARTIFACTORY_USER --password=$ARTIFACTORY_PASS --interactive=false
           jf c show
           jf mvn-config --global --server-id-resolve=hts2 --repo-resolve-releases=ghactions-libs-release --repo-resolve-snapshots=ghactions-libs-snapshot --server-id-deploy=hts2 --repo-deploy-releases=ghactions-libs-release-local --repo-deploy-snapshots=ghactions-libs-snapshot-local
@@ -37,6 +38,7 @@ jobs:
         run: |
           jf mvn clean install
           jf rt bce
+          jf rt bag
           jf rt bp
         env:
           JF_ARTIFACTORY_1: ${{ secrets.HARISH_CLI_GITHUB_ACTIONS }}     
