@@ -25,7 +25,7 @@ jobs:
           middle_name: "The"
           password: "Octocat"
       - name: Setup JFrog CLI
-        uses: jfrog/setup-jfrog-cli@v2.0.0
+        uses: jfrog/setup-jfrog-cli@v2.34.6
         with:
           version: 2.34.6
       - name: Setup JFrog CLI
