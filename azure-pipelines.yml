@@ -21,8 +21,8 @@ steps:
     mavenPomFile: 'pom.xml'
     goals: 'install'
     artifactoryResolverService: 'Aindia-artifactory'
-    targetResolveReleaseRepo: 'ad-libs-release'
-    targetResolveSnapshotRepo: 'ad-libs-snapshot'
+    targetResolveReleaseRepo: 'aindia-libs-release'
+    targetResolveSnapshotRepo: 'aindia-libs-snapshot'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
